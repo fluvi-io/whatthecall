@@ -267,8 +267,3 @@ const functions = ({
 })
 
 const functionsCompiled = Object.fromEntries(Object.entries(functions).map(([k, v]) => [toSignature(k), (p, tx, args) => v(p, tx, (Object.fromEntries(zip(paramNames(k), args))))]))
-
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
