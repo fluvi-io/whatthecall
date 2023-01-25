@@ -12,7 +12,7 @@ interface ExplainResult {
  * @param platformId
  * https://api.coingecko.com/api/v3/asset_platforms
  * @param tx
- * @returns
+ * @returns ExplainResult
  */
 export declare const explain: (tx: {
     data: string;

@@ -8,6 +8,8 @@ const selector = (signature) =>
 const toSignature = (def: string) =>
   def.replaceAll(/\ +[^ ]+ *(?=[,)])/g, "").replaceAll(/\ +/g, "");
 
+const extractMethod = (signature: string) => signature.split("(")[0];
+
 function utf8ToHex(str: string) {
   return (
     "0x" +
@@ -600,7 +602,7 @@ interface ExplainResult {
  * @param platformId
  * https://api.coingecko.com/api/v3/asset_platforms
  * @param tx
- * @returns
+ * @returns ExplainResult
  */
 
 export const explain = async (
@@ -624,8 +626,8 @@ export const explain = async (
     }
   } catch (e) {
     console.error(e);
-    return { title: sig, signature: sig };
+    return { title: extractMethod(sig), signature: sig };
   }
 
-  return { title: sig, signature: sig };
+  return { title: extractMethod(sig), signature: sig };
 };
