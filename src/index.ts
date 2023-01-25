@@ -605,7 +605,7 @@ interface ExplainResult {
 
 export const explain = async (
   tx: { data: string; to: string },
-  platformId?: PlatformId
+  platformId?: string
 ): Promise<ExplainResult> => {
   const sig = await signature(tx.data.slice(0, 10));
   const params = utils.defaultAbiCoder.decode(
