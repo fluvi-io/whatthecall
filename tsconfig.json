@@ -4,10 +4,17 @@
     "module": "commonjs",
     "declaration": true,
     "outDir": "./lib",
-    "lib": [ "es2021" ],
+    "lib": [
+      "es2021"
+    ],
     "allowJs": true,
     "checkJs": false
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/__tests__/*"
+  ]
 }

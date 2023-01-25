@@ -1,49 +1,20 @@
-export declare const explain: (p: any, tx: {
+/**
+ *
+ * @param platformId
+ * https://api.coingecko.com/api/v3/asset_platforms
+ * @param tx
+ * @returns
+ */
+type PlatformId = "binance-smart-chain" | "polygon-pos" | "klay-token" | "ethereum";
+interface ExplainResult {
+    title: string;
+    description?: string;
+    signature: string;
+    suspicious?: boolean;
+    normalForm?: any;
+}
+export declare const explain: (tx: {
     data: string;
     to: string;
-}) => Promise<{
-    title: string;
-    description: string;
-    normalForm: {
-        type: string;
-        token: any;
-        amount: any;
-    };
-} | {
-    title: string;
-    description: string;
-    suspicious: boolean;
-    normalForm: {
-        type: string;
-        contents?: undefined;
-    } | {
-        type: string;
-        contents: {
-            token: any;
-            amount: any;
-        }[];
-    };
-} | {
-    title: string;
-    description: string;
-    suspicious: boolean;
-    normalForm: {
-        type: string;
-        from?: undefined;
-        to?: undefined;
-        exactness?: undefined;
-    } | {
-        type: string;
-        from: {
-            token: any;
-            amount: any;
-        };
-        to: {
-            token: any;
-            amount: any;
-        };
-        exactness: string;
-    };
-} | {
-    title: string;
-}>;
+}, platformId?: PlatformId) => Promise<ExplainResult>;
+export {};
