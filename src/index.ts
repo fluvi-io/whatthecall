@@ -622,6 +622,7 @@ export const explain = async (
       return { ...result, signature: sig };
     }
   } catch (e) {
+    console.error(e);
     return { title: sig, signature: sig };
   }
 
